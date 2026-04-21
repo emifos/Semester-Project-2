@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Auction</title>
+    <title>Valora House | Auction</title>
     <meta
       name="description"
-      content="A auction application where you can browse available listings, view details of each listing and as a logged in user create new listings."
+      content="An auction application where you can browse available listings, view details of each listing and as a logged in user create new listings."
     />
     <link
       rel="apple-touch-icon"
@@ -31,7 +31,27 @@
   <body>
     <header></header>
     <main>
-      <h1 class="text-red-700">Listings</h1>
+      <form>
+        <div>
+          <label for="searchListings">Search by listings</label>
+          <input
+            type="search"
+            id="searchListings"
+            name="q"
+            placeholder="Search by title..."
+          />
+        </div>
+        <div>
+          <label for="filterListings">Filter by tags</label>
+          <input
+            type="search"
+            id="filterListings"
+            name="_tag"
+            placeholder="Enter tag..."
+          />
+        </div>
+      </form>
+      <h1>Listings</h1>
     </main>
     <footer></footer>
   </body>
