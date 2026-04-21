@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Auction</title>
+    <title>Valora House | Auction</title>
     <meta
       name="description"
-      content="A auction application where you can browse available listings, view details of each listing and as a logged in user create new listings."
+      content="An auction application where you can browse available listings, view details of each listing and as a logged in user create new listings."
     />
     <link
       rel="apple-touch-icon"
@@ -26,12 +26,45 @@
       href="favicon_io-7/favicon-16x16.png"
     />
     <link rel="manifest" href="favicon_io-7/site.webmanifest" />
+    <script
+      src="https://kit.fontawesome.com/309152690f.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body>
+  <body class="font-manrope bg-background">
     <header></header>
     <main>
-      <h1 class="text-red-700">Listings</h1>
+      <div class="border-border border-b bg-white">
+        <form class="flex">
+          <div class="relative">
+            <label class="sr-only" for="searchListings"
+              >Search by listings</label
+            >
+            <input
+              type="search"
+              id="searchListings"
+              name="q"
+              placeholder="Search by title..."
+              class="border-border text-placeholder focus:outline-accent cursor-pointer rounded-md border px-2 py-3"
+            />
+            <i
+              class="fa-solid fa-magnifying-glass text-text absolute top-1/2 right-3 -translate-y-1/2"
+            ></i>
+          </div>
+          <div>
+            <label class="sr-only" for="filterListings">Filter by tags</label>
+            <input
+              type="search"
+              id="filterListings"
+              name="_tag"
+              placeholder="Filter by tag..."
+              class="border-border focus:outline-accent text-placeholder cursor-pointer rounded-md border px-2 py-3"
+            />
+          </div>
+        </form>
+      </div>
+      <h1>Listings</h1>
     </main>
     <footer></footer>
   </body>
