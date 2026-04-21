@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta
+      name="description"
+      content="Register a user to log in and bid on beautiful listings."
+    />
+    <title>Valora House | Register</title>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -22,6 +26,57 @@
       href="favicon_io-7/favicon-16x16.png"
     />
     <link rel="manifest" href="favicon_io-7/site.webmanifest" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <header></header>
+    <main>
+      <form id="registerForm">
+        <div>
+          <h1>Register</h1>
+        </div>
+        <div>
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+          />
+          <span id="nameError"></span>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your email"
+            required
+          />
+          <span id="emailError"></span>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Create password"
+            required
+          />
+          <span id="passwordError"></span>
+        </div>
+        <div>
+          <label for="terms">Agree to Terms & Conditions</label>
+          <input type="checkbox" id="terms" name="terms" required />
+        </div>
+        <div>
+          <button type="submit">Register</button>
+          <p>Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+      </form>
+    </main>
+  </body>
 </html>
