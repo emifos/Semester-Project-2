@@ -33,7 +33,7 @@ async function apiClient(endpoint, options = {}) {
   }
 
   try {
-    const response = await fetch(`${BASE_URL}${endpoint}`, config);
+    const response = await fetch(BASE_URL + endpoint, config);
 
     if (!response.ok) {
       const errorData = await response.json();
