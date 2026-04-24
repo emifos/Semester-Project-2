@@ -10,23 +10,33 @@ export function renderProfile(profile) {
   name.textContent = user.name;
 
   const email = document.createElement("p");
-  name.textContent = user.email;
+  email.textContent = user.email;
 
   const bio = document.createElement("p");
-  name.textContent = user.bio || "No bio.";
+  bio.textContent = user.bio || "No bio.";
 
   const avatar = document.createElement("img");
-  avatar.src = user.avatar?.url || "";
+  avatar.src = user.avatar?.url || "/images/placeholder-img.jpg";
   avatar.alt = user.avatar?.alt || "Avatar";
 
+  //Banner with edit-button
+  const bannerWrapper = document.createElement("div");
+  bannerWrapper.className("");
+
   const banner = document.createElement("img");
-  banner.src = user.banner?.url || "";
+  banner.src = user.banner?.url || "/images/placeholder-img.jpg";
   banner.alt = user.banner?.alt || "Banner";
+
+  const editButton = document.createElement("button");
+  editButton.textContent = "Edit profile";
+  editButton.className("");
+
+  bannerWrapper.append(banner, editButton);
 
   const credits = document.createElement("p");
   credits.textContent = `Credits: ${user.credits}`;
 
-  profileHeader.append(banner, credits, avatar, name, email, bio);
+  profileHeader.append(bannerWrapper, credits, avatar, name, email, bio);
 
   // Tabs
   const tabs = document.createElement("div");
@@ -35,7 +45,7 @@ export function renderProfile(profile) {
   listingsTab.textContent = "Listings";
 
   const bidsTab = document.createElement("button");
-  bidsTab.textContent = "Bids;";
+  bidsTab.textContent = "Bids";
 
   const winsTab = document.createElement("button");
   winsTab.textContent = "Wins";
@@ -47,5 +57,5 @@ export function renderProfile(profile) {
 
   container.append(profileHeader, tabs, content);
 
-  return (container, content, listingsTab, bidsTab, winsTab);
+  return { container, content, listingsTab, bidsTab, winsTab, editButton };
 }

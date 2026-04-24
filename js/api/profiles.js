@@ -17,7 +17,7 @@ export async function getProfileListings(name) {
 
 //Get profile bids
 export async function getProfileBids(name) {
-  return await get(`/auction/profiles/${name}/bids`);
+  return await get(`/auction/profiles/${name}/bids?_listings`);
 }
 
 //Get profile wins
