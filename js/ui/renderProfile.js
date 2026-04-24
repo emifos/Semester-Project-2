@@ -37,6 +37,7 @@ export function renderProfile(profile) {
   const editButton = document.createElement("button");
   editButton.textContent = "Edit profile";
   editButton.className = "";
+  editButton.id = "editButton";
 
   bannerWrapper.append(banner, editButton);
 
@@ -53,20 +54,24 @@ export function renderProfile(profile) {
   const listingsTab = document.createElement("button");
   listingsTab.textContent = "Listings";
   listingsTab.className = "";
+  listingsTab.id = "listingsTab";
 
   const bidsTab = document.createElement("button");
   bidsTab.textContent = "Bids";
   bidsTab.className = "";
+  bidsTab.id = "bidsTab";
 
   const winsTab = document.createElement("button");
   winsTab.textContent = "Wins";
   winsTab.className = "";
+  winsTab.id = "winsTab";
 
   tabs.append(listingsTab, bidsTab, winsTab);
 
   //Content Area
   const content = document.createElement("div");
   content.className = "";
+  content.id = "content";
 
   container.append(profileHeader, tabs, content);
 
