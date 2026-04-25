@@ -9,22 +9,48 @@ import {
   renderProfileWins,
 } from "../ui/renderProfileListings.js";
 
-export function setupProfileEvents(profile) {
-  const name = profile.data.name;
-
+export function setupProfileEvents(name) {
   const content = document.getElementById("content");
   const listingsTab = document.getElementById("listingsTab");
-  const winsTab = document.getElementsByName("winsTab");
+  const bidsTab = document.getElementById("bidsTab");
+  const winsTab = document.getElementById("winsTab");
   const editButton = document.getElementById("editButton");
 
-  //Listings 
+  //Listings
   listingsTab.addEventListener("click", async () => {
     try {
-        const response = await getProfileListings(name);
-        renderProfileListings(response.data, content);
-    } catch (error){
-        console.error("Error fetching listings:", error);
+      const response = await getProfileListings(name);
+      renderProfileListings(response.data, content);
+    } catch (error) {
+      console.error("Error fetching listings:", error);
     }
   });
-  
+
+  //Bids
+  bidsTab.addEventListener("click", async () => {
+    try {
+      const response = await getProfileBids(name);
+      renderProfileBids(response.data, content);
+    } catch (error) {
+      console.error("Error fetching bids:", error);
+    }
+  });
+
+  //Wins
+  winsTab.addEventListener("click", async () => {
+    try {
+      const response = await getProfileWins(name);
+      renderProfileWins(response.data, content);
+    } catch (error) {
+      console.error("Error fetching wins:", error);
+    }
+  });
+
+  // Edit profile Button (Unfinished)
+  if (editButton) {
+    editButton.addEventListener("click", () => {});
+  }
+
+  //Default - Listings
+  listingsTab.click();
 }
