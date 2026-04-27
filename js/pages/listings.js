@@ -1,6 +1,9 @@
 import { getAllListings } from "../api/listings.js";
 import { renderListingCard } from "../ui/renderListingCard.js";
 import "../events/listingEvents.js";
+import { authGuardUI } from "../utils/authGuard.js";
+
+authGuardUI();
 
 const container = document.getElementById("listingCards");
 
