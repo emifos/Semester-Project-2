@@ -1,8 +1,12 @@
 export function renderProfileListings(listings, content) {
   content.innerHTML = "";
+  content.className = "grid grid-cols-1 md:grid-cols-2 gap-4";
 
   if (!listings.length) {
-    content.textContent = "No Listings yet.";
+    const empty = document.createElement("p");
+    empty.textContent = "No listings yet.";
+    empty.className = "col-span-full text-center text-text m-4";
+    content.appendChild(empty);
     return;
   }
 
@@ -32,7 +36,10 @@ export function renderProfileBids(bids, content) {
   content.innerHTML = "";
 
   if (!bids.length) {
-    content.textContent = "No bids yet.";
+    const empty = document.createElement("p");
+    empty.textContent = "No bids yet.";
+    empty.className = "col-span-full text-center text-text m-4";
+    content.appendChild(empty);
     return;
   }
 
@@ -68,7 +75,10 @@ export function renderProfileWins(wins, content) {
   content.innerHTML = "";
 
   if (!wins.length) {
-    content.textContent = "No wins yet.";
+    const empty = document.createElement("p");
+    empty.textContent = "No wins yet.";
+    empty.className = "col-span-full text-center text-text m-4";
+    content.appendChild(empty);
     return;
   }
 
