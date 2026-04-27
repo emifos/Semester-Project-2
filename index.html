@@ -36,8 +36,10 @@
   <body class="font-manrope">
     <header></header>
     <main class="bg-background">
-      <div class="border-border border-b bg-white">
-        <form class="flex">
+      <div
+        class="border-border grid grid-cols-2 gap-2 border-b bg-white md:flex md:items-start"
+      >
+        <form class="col-span-2 mx-3 mt-7 md:my-8 md:ml-7">
           <div class="relative">
             <label class="sr-only" for="searchListings"
               >Search by listings</label
@@ -47,12 +49,14 @@
               id="searchListings"
               name="q"
               placeholder="Search by title..."
-              class="border-border text-placeholder focus:outline-accent cursor-pointer rounded-md border px-2 py-3"
+              class="border-border text-placeholder focus:outline-accent w-full cursor-pointer rounded-md border px-2 py-3"
             />
             <i
               class="fa-solid fa-magnifying-glass text-text absolute top-1/2 right-3 -translate-y-1/2"
             ></i>
           </div>
+        </form>
+        <form class="col-start-1 mb-7 ml-3 md:my-8">
           <div>
             <label class="sr-only" for="filterListings">Filter by tags</label>
             <input
@@ -60,10 +64,16 @@
               id="filterListings"
               name="_tag"
               placeholder="Filter by tag..."
-              class="border-border focus:outline-accent text-placeholder cursor-pointer rounded-md border px-2 py-3"
+              class="border-border focus:outline-accent text-placeholder w-full cursor-pointer rounded-md border px-2 py-3"
             />
           </div>
         </form>
+        <a
+          href="./create-listing.html"
+          id="createListingButton"
+          class="bg-accent hover:from-accent hover:to-accent-hover mr-3 mb-7 flex cursor-pointer items-center justify-center rounded-md px-3 py-2 text-lg text-white hover:bg-linear-to-r md:my-8 md:mr-7 md:ml-auto md:py-2.5 md:text-xl"
+          >+ Create listing</a
+        >
       </div>
       <h1 class="text-header-mobile text-text font-medium md:text-2xl">
         Listings
