@@ -16,8 +16,18 @@ export function setupProfileEvents(name) {
   const winsTab = document.getElementById("winsTab");
   const editButton = document.getElementById("editButton");
 
+  function setActiveTab(activeTab) {
+    const tabs = [listingsTab, bidsTab, winsTab];
+    tabs.forEach((tab) => {
+      tab.classList.remove("border-b-2", "border-accent");
+    });
+
+    activeTab.classList.add("border-b-2", "border-accent");
+  }
+
   //Listings
   listingsTab.addEventListener("click", async () => {
+    setActiveTab(listingsTab);
     try {
       const response = await getProfileListings(name);
       renderProfileListings(response.data, content);
@@ -28,6 +38,7 @@ export function setupProfileEvents(name) {
 
   //Bids
   bidsTab.addEventListener("click", async () => {
+    setActiveTab(bidsTab);
     try {
       const response = await getProfileBids(name);
       renderProfileBids(response.data, content);
@@ -38,6 +49,7 @@ export function setupProfileEvents(name) {
 
   //Wins
   winsTab.addEventListener("click", async () => {
+    setActiveTab(winsTab);
     try {
       const response = await getProfileWins(name);
       renderProfileWins(response.data, content);
