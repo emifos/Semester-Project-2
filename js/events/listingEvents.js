@@ -1,4 +1,4 @@
-import { searchListings } from "../api/listings.js";
+import { searchListings, filterListingsByTag } from "../api/listings.js";
 import { renderListings, initListings } from "../pages/listings.js";
 
 // Search for listings event listener
@@ -13,5 +13,20 @@ searchInput.addEventListener("input", async (e) => {
   }
 
   const response = await searchListings(query);
+  renderListings(response);
+});
+
+// Filter by tag event listener
+const tagInput = document.getElementById("filterListings");
+
+tagInput.addEventListener("input", async (e) => {
+  const tag = tagInput.value.trim();
+
+  if (!tag) {
+    await initListings();
+    return;
+  }
+
+  const response = await filterListingsByTag(tag);
   renderListings(response);
 });
