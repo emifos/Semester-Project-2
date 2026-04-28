@@ -1,6 +1,7 @@
 export function renderProfileListings(listings, content) {
   content.innerHTML = "";
-  content.className = "grid grid-cols-1 md:grid-cols-2 gap-4";
+  content.className =
+    "grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center mt-6 mb-6";
 
   if (!listings.length) {
     const empty = document.createElement("p");
@@ -12,22 +13,33 @@ export function renderProfileListings(listings, content) {
 
   listings.forEach((listing) => {
     const card = document.createElement("div");
-    card.className = "";
+    card.className =
+      "w-full max-w-xs relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
 
     const img = document.createElement("img");
     img.src = listing.media?.[0]?.url || "/images/placeholder-img.jpg";
     img.alt = listing.media?.[0]?.alt || "Listing image";
-    img.className = "";
+    img.className = "w-full h-55 object-cover";
+
+    const button = document.createElement("a");
+    button.textContent = "View more";
+    button.href = "";
+    button.className =
+      "absolute top-2 right-2 bg-accent text-white text-sm px-2 py-2 rounded-md z-10";
+
+    const overlay = document.createElement("div");
+    overlay.className = "w-full bg-black/70 text-white p-2";
 
     const title = document.createElement("h3");
     title.textContent = listing.title;
-    title.className = "";
+    title.className = " font-medium text-base";
 
     const ends = document.createElement("p");
     ends.textContent = `Ends: ${new Date(listing.endsAt).toLocaleString()}`;
-    ends.className = "";
+    ends.className = "text-sm font-regular";
 
-    card.append(img, title, ends);
+    overlay.append(title, ends);
+    card.append(img, button, overlay);
     content.appendChild(card);
   });
 }
