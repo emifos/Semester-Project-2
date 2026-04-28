@@ -26,12 +26,16 @@
       href="favicon_io-7/favicon-16x16.png"
     />
     <link rel="manifest" href="favicon_io-7/site.webmanifest" />
+    <script
+      src="https://kit.fontawesome.com/309152690f.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./css/style.css" />
     <script type="module" src="js/pages/register.js"></script>
   </head>
-  <body class="font-manrope bg-background">
+  <body class="font-manrope grid min-h-screen grid-rows-[auto_1fr_auto]">
     <header></header>
-    <main class="flex min-h-screen items-center justify-center">
+    <main class="bg-background flex min-h-screen items-center justify-center">
       <div
         class="mx-4 w-full max-w-md rounded-md bg-white p-6 shadow-md md:mx-0 md:max-w-xl md:p-20"
       >
@@ -112,5 +116,28 @@
         </form>
       </div>
     </main>
+    <footer class="bg-primary py-6 text-white">
+      <div class="flex flex-col items-center text-center">
+        <h3 class="mb-4 text-sm md:mb-6 md:text-base">CONTACT US</h3>
+        <div
+          class="text-cs flex flex-col items-center gap-2 md:flex-row md:gap-6"
+        >
+          <p class="mb-2 flex items-center gap-2 text-xs text-white md:text-sm">
+            <i class="fa-solid fa-phone"></i>23 02 03 31
+          </p>
+          <p class="mb-2 flex items-center gap-2 text-xs text-white md:text-sm">
+            <i class="fa-solid fa-envelope"></i>service@valorahouse.com
+          </p>
+          <p class="mb-2 flex items-center gap-2 text-xs text-white md:text-sm">
+            <i class="fa-solid fa-location-dot"></i>Kongens gate 23, 0250 Oslo
+          </p>
+        </div>
+        <img
+          class="h-16 w-16 md:mt-4 md:h-20 md:w-20"
+          alt="Valora-house logo"
+          src="/images/logo-footer-black.png"
+        />
+      </div>
+    </footer>
   </body>
 </html>
