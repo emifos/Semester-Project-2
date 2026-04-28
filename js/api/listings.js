@@ -26,6 +26,19 @@ export async function searchListings(query) {
   }
 }
 
+// Filter listings by tag
+export async function filterListingsByTag(tag) {
+  try {
+    const listings = await get(
+      `/auction/listings?_tag=${encodeURIComponent(tag)}&_seller=true&_bids=true&sort=created&sortOrder=desc`,
+    );
+    return listings.data;
+  } catch (error) {
+    console.error(error.message);
+    throw error;
+  }
+}
+
 // Create listing
 export async function createListing(listingData) {
   try {
