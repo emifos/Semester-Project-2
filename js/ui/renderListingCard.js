@@ -3,14 +3,18 @@ export function renderListingCard(listing) {
   card.className =
     "listing-card max-w-xs rounded-md break-all bg-white shadow-md relative";
 
-  let image;
-  if (listing.media?.length) {
-    image = document.createElement("img");
-    image.src = listing.media[0].url || "/images/placeholder-img.jpg";
-    image.alt = listing.media[0].alt || "Listing Image";
-    card.appendChild(image);
-    image.className = "w-full rounded-t-md object-cover h-55";
-  }
+  const imageUrl = listing.media?.[0]?.url;
+  const image = document.createElement("img");
+  image.src =
+    imageUrl && imageUrl.trim() !== ""
+      ? imageUrl
+      : "/images/placeholder-img.jpg";
+  image.onerror = () => {
+    image.src = "/images/placeholder-img.jpg";
+  };
+  image.alt = listing.media?.[0]?.alt || "Listing Image";
+  card.appendChild(image);
+  image.className = "w-full rounded-t-md object-cover h-55";
 
   const endContainer = document.createElement("div");
   endContainer.className =
