@@ -1,6 +1,6 @@
 import { updateProfile } from "../api/profiles.js";
 
-export function setUpEditProfileEvents(name) {
+export function setupEditProfileEvents(name) {
   const form = document.getElementById("editProfileForm");
   const cancelButton = document.getElementById("cancelEdit");
 
@@ -18,7 +18,7 @@ export function setUpEditProfileEvents(name) {
         bio,
       });
 
-      window.location.href = "/profile.html;";
+      window.location.href = "/profile.html";
     } catch (error) {
       console.error("Error updating profile:", error);
       alert("Failed to update profile. Please try again.");
