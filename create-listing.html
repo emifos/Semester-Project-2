@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Valora House | Create listing</title>
+    <meta
+      name="description"
+      content="Create a new listing to sell your item on Valora House"
+    />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -22,7 +26,110 @@
       href="favicon_io-7/favicon-16x16.png"
     />
     <link rel="manifest" href="favicon_io-7/site.webmanifest" />
+    <script
+      src="https://kit.fontawesome.com/309152690f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
     <script type="module" src="/js/pages/createListing.js"></script>
   </head>
-  <body></body>
+  <body class="font-manrope">
+    <header></header>
+    <main class="bg-background flex min-h-screen justify-center">
+      <div
+        class="mx-4 my-10 w-full max-w-lg rounded-md bg-white p-6 shadow-md md:mx-0 md:max-w-3xl md:p-20"
+      >
+        <h1
+          class="text-header-mobile text-text mb-4 text-center font-semibold md:text-2xl"
+        >
+          Create listing
+        </h1>
+        <form class="flex flex-col">
+          <div class="mt-3 flex flex-col gap-1">
+            <label for="listingTitle" class="text-text font-semibold md:text-lg"
+              >Title</label
+            >
+            <input
+              type="text"
+              id="listingTitle"
+              name="listingTitle"
+              placeholder="Enter the title"
+              class="border-border text-placeholder focus:outline-accent cursor-pointer rounded-md border px-2 py-3 text-sm md:text-base"
+              required
+            />
+          </div>
+          <div class="mt-3 flex flex-col gap-1">
+            <label
+              for="listingDescription"
+              class="text-text font-semibold md:text-lg"
+              >Description</label
+            >
+            <textarea
+              id="listingDescription"
+              name="listingDescription"
+              placeholder="Enter the description"
+              class="border-border text-placeholder focus:outline-accent cursor-pointer rounded-md border px-2 py-3 text-sm md:text-base"
+              required
+            ></textarea>
+          </div>
+          <div class="mt-3 flex flex-col gap-1">
+            <label for="listingImage" class="text-text font-semibold md:text-lg"
+              >Title</label
+            >
+            <input
+              type="url"
+              id="listingImage"
+              name="listingImage"
+              placeholder="Image URL"
+              class="border-border text-placeholder focus:outline-accent cursor-pointer rounded-md border px-2 py-3 text-sm md:text-base"
+              required
+            />
+          </div>
+          <div class="has-tooltip relative mt-3 flex justify-end">
+            <i
+              class="fa-regular fa-image text-accent cursor-pointer text-2xl"
+            ></i>
+            <span
+              class="bg-primary tooltip top-full rounded-md px-2 py-1 text-sm text-white"
+              >Add image</span
+            >
+          </div>
+          <div class="mt-3 flex flex-col gap-1">
+            <label for="tags" class="text-text font-semibold md:text-lg"
+              >Tags</label
+            >
+            <input
+              type="text"
+              id="tags"
+              name="tags"
+              placeholder="Enter tags separated by commas"
+              class="border-border text-placeholder focus:outline-accent cursor-pointer rounded-md border px-2 py-3 text-sm md:text-base"
+              required
+            />
+          </div>
+          <div class="mt-3 flex flex-col gap-1">
+            <label for="endDate" class="text-text font-semibold md:text-lg"
+              >Ends at</label
+            >
+            <input
+              type="date"
+              id="endDate"
+              name="endDate"
+              min="2026-04-27"
+              max="2027-04-27"
+              class="border-border text-placeholder focus:outline-accent cursor-pointer rounded-md border px-2 py-3 text-sm md:text-base"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="from-accent to-accent-hover hover:bg-accent mx-auto mt-8 block w-full cursor-pointer rounded-md bg-linear-to-r px-2 py-2.5 text-xl font-medium text-white hover:bg-none"
+          >
+            Publish listing
+          </button>
+        </form>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
 </html>
