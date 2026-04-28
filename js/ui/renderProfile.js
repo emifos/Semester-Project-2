@@ -19,7 +19,7 @@ export function renderProfile(profile) {
   const editButton = document.createElement("button");
   editButton.textContent = "Edit profile";
   editButton.className =
-    "absolute top-2 right-3 bg-text text-white px-3 py-2 rounded-md border border-white mt-2";
+    "absolute top-2 right-3 bg-text text-white px-3 py-2 rounded-md border border-white mt-2 cursor-pointer";
   editButton.id = "editButton";
 
   bannerWrapper.append(banner, editButton);

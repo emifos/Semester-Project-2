@@ -9,4 +9,4 @@ const user = getUser();
 const name = user.name;
 
 renderEditProfile(name);
-setUpEditProfileEvents(name);
+setupEditProfileEvents(name);
