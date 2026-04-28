@@ -13,5 +13,5 @@ searchInput.addEventListener("input", async (e) => {
   }
 
   const response = await searchListings(query);
-  renderListings(response.data);
+  renderListings(response);
 });
