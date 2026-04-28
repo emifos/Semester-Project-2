@@ -58,9 +58,11 @@ export function setupProfileEvents(name) {
     }
   });
 
-  // Edit profile Button (Unfinished)
+  // Edit profile Button 
   if (editButton) {
-    editButton.addEventListener("click", () => {});
+    editButton.addEventListener("click", () => {
+      window.location.href = "/edit-profile.html";
+    });
   }
 
   //Default - Listings
