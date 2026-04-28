@@ -18,7 +18,7 @@ export function renderListings(listings) {
 
 export async function initListings() {
   const response = await getAllListings();
-  renderListings(response.data);
+  renderListings(response);
 }
 
 initListings();

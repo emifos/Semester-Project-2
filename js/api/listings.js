@@ -1,10 +1,12 @@
-import { get } from "./apiClient.js";
+import { get, post } from "./apiClient.js";
 
 // All listings
 export async function getAllListings() {
   try {
-    const listings = await get("/auction/listings?_seller=true&_bids=true");
-    return listings;
+    const listings = await get(
+      "/auction/listings?_seller=true&_bids=true&sort=created&sortOrder=desc",
+    );
+    return listings.data;
   } catch (error) {
     console.error(error.message);
     throw error;
@@ -15,9 +17,20 @@ export async function getAllListings() {
 export async function searchListings(query) {
   try {
     const listings = await get(
-      `/auction/listings/search?q=${encodeURIComponent(query)}&_seller=true&_bids=true`,
+      `/auction/listings/search?q=${encodeURIComponent(query)}&_seller=true&_bids=true&sort=created&sortOrder=desc`,
     );
-    return listings;
+    return listings.data;
+  } catch (error) {
+    console.error(error.message);
+    throw error;
+  }
+}
+
+// Create listing
+export async function createListing(listingData) {
+  try {
+    const listing = await post("/auction/listings", listingData);
+    return listing;
   } catch (error) {
     console.error(error.message);
     throw error;

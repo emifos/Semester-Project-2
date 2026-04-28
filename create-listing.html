@@ -44,7 +44,7 @@
         >
           Create listing
         </h1>
-        <form class="flex flex-col">
+        <form id="createListingForm" class="flex flex-col">
           <div class="mt-3 flex flex-col gap-1">
             <label for="listingTitle" class="text-text font-semibold md:text-lg"
               >Title</label
@@ -72,21 +72,26 @@
               required
             ></textarea>
           </div>
-          <div class="mt-3 flex flex-col gap-1">
-            <label for="listingImage" class="text-text font-semibold md:text-lg"
-              >Title</label
-            >
-            <input
-              type="url"
-              id="listingImage"
-              name="listingImage"
-              placeholder="Image URL"
-              class="border-border text-placeholder focus:outline-accent cursor-pointer rounded-md border px-2 py-3 text-sm md:text-base"
-              required
-            />
+          <div id="imageInputContainer">
+            <div class="mt-3 flex flex-col gap-1">
+              <label
+                for="listingImage"
+                class="text-text font-semibold md:text-lg"
+                >Image URL</label
+              >
+              <input
+                type="url"
+                id="listingImage"
+                name="listingImage"
+                placeholder="Image URL"
+                class="border-border text-placeholder focus:outline-accent cursor-pointer rounded-md border px-2 py-3 text-sm md:text-base"
+                required
+              />
+            </div>
           </div>
           <div class="has-tooltip relative mt-3 flex justify-end">
             <i
+              id="addImageButton"
               class="fa-regular fa-image text-accent cursor-pointer text-2xl"
             ></i>
             <span
