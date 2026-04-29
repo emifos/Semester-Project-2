@@ -46,6 +46,8 @@ export function renderProfileListings(listings, content) {
 
 export function renderProfileBids(bids, content) {
   content.innerHTML = "";
+  content.className =
+    "grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center mt-6 mb-6";
 
   if (!bids.length) {
     const empty = document.createElement("p");
@@ -59,32 +61,45 @@ export function renderProfileBids(bids, content) {
     const listing = bid.listing;
 
     const card = document.createElement("div");
-    card.className = "";
+    card.className =
+      "w-full max-w-xs relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
 
     const img = document.createElement("img");
     img.src = listing.media?.[0]?.url || "/images/placeholder-img.jpg";
     img.alt = listing.media?.[0]?.alt || "Bid listing image";
-    img.className = "";
+    img.className = "w-full h-55 object-cover";
+
+    const button = document.createElement("a");
+    button.textContent = "View more";
+    button.href = "";
+    button.className =
+      "absolute top-2 right-2 bg-accent text-white text-sm px-2 py-2 rounded-md z-10";
+
+    const overlay = document.createElement("div");
+    overlay.className = "w-full bg-black/70 text-white p-2";
 
     const title = document.createElement("h3");
     title.textContent = listing.title;
-    title.className = "";
+    title.className = "font-medium text-base";
 
     const ends = document.createElement("p");
     ends.textContent = `Ends: ${new Date(listing.endsAt).toLocaleString()}`;
-    ends.className = "";
+    ends.className = "text-sm font-regular";
 
     const amount = document.createElement("p");
     amount.textContent = `Your bid: ${bid.amount}`;
-    amount.className = "";
+    amount.className = "font-bold";
 
-    card.append(img, title, ends, amount);
+    overlay.append(title, ends, amount);
+    card.append(img, button, overlay);
     content.appendChild(card);
   });
 }
 
 export function renderProfileWins(wins, content) {
   content.innerHTML = "";
+  content.className =
+    "grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center mt-6 mb-6";
 
   if (!wins.length) {
     const empty = document.createElement("p");
@@ -96,23 +111,34 @@ export function renderProfileWins(wins, content) {
 
   wins.forEach((listing) => {
     const card = document.createElement("div");
-    card.className = "";
+    card.className =
+      "w-full max-w-xs relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
 
     const img = document.createElement("img");
     img.src = listing.media?.[0]?.url || "/images/placeholder-img.jpg";
     img.alt = listing.media?.[0]?.alt || "Win listing image";
-    img.className = "";
+    img.className = "w-full h-55 object-cover";
+
+    const button = document.createElement("a");
+    button.textContent = "View more";
+    button.href = "";
+    button.className =
+      "absolute top-2 right-2 bg-accent text-white text-sm px-2 py-2 rounded-md z-10";
+
+    const overlay = document.createElement("div");
+    overlay.className = "w-full bg-black/70 text-white p-2";
 
     const title = document.createElement("h3");
     title.textContent = listing.title;
-    title.className = "";
+    title.className = "font-medium text-base";
 
     const bidCount = document.createElement("p");
     const count = listing._count?.bids || listing.bids?.length || 0;
     bidCount.textContent = `Bids: ${count}`;
-    bidCount.className = "";
+    bidCount.className = "font-bold";
 
-    card.appendChild(img, title, bidCount);
+    overlay.append(title, bidCount);
+    card.append(img, button, overlay);
     content.appendChild(card);
   });
 }
