@@ -1,7 +1,7 @@
 export function renderProfileListings(listings, content) {
   content.innerHTML = "";
   content.className =
-    "grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center mt-6 mb-6";
+    "grid grid-cols-1 mx-auto mt-6 mb-6 gap-4 md:grid-cols-2 md:max-w-2xl lg:grid-cols-3 md:gap-6 lg:max-w-4xl";
 
   if (!listings.length) {
     const empty = document.createElement("p");
@@ -14,7 +14,7 @@ export function renderProfileListings(listings, content) {
   listings.forEach((listing) => {
     const card = document.createElement("div");
     card.className =
-      "w-full max-w-xs relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
+      "w-full max-w-xs mx-auto relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
 
     const img = document.createElement("img");
     img.src = listing.media?.[0]?.url || "/images/placeholder-img.jpg";
@@ -47,7 +47,7 @@ export function renderProfileListings(listings, content) {
 export function renderProfileBids(bids, content) {
   content.innerHTML = "";
   content.className =
-    "grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center mt-6 mb-6";
+    "grid grid-cols-1 mx-auto mt-6 mb-6 gap-4 md:grid-cols-2 md:max-w-2xl lg:grid-cols-3 md:gap-6 lg:max-w-4xl";
 
   if (!bids.length) {
     const empty = document.createElement("p");
@@ -62,7 +62,7 @@ export function renderProfileBids(bids, content) {
 
     const card = document.createElement("div");
     card.className =
-      "w-full max-w-xs relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
+      "w-full max-w-xs mx-auto relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
 
     const img = document.createElement("img");
     img.src = listing.media?.[0]?.url || "/images/placeholder-img.jpg";
@@ -99,7 +99,7 @@ export function renderProfileBids(bids, content) {
 export function renderProfileWins(wins, content) {
   content.innerHTML = "";
   content.className =
-    "grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center mt-6 mb-6";
+    "grid grid-cols-1 mx-auto mt-6 mb-6 gap-4 md:grid-cols-2 md:max-w-2xl lg:grid-cols-3 md:gap-6 lg:max-w-4xl";
 
   if (!wins.length) {
     const empty = document.createElement("p");
@@ -112,7 +112,7 @@ export function renderProfileWins(wins, content) {
   wins.forEach((listing) => {
     const card = document.createElement("div");
     card.className =
-      "w-full max-w-xs relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
+      "w-full max-w-xs mx-auto relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
 
     const img = document.createElement("img");
     img.src = listing.media?.[0]?.url || "/images/placeholder-img.jpg";
