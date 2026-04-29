@@ -49,3 +49,16 @@ export async function createListing(listingData) {
     throw error;
   }
 }
+
+// Get active listings
+export async function getActiveListings() {
+  try {
+    const listing = await get(
+      "/auction/listings?_active=true&_seller=true&_bids=true&sort=created&sortOrder=desc",
+    );
+    return listing.data;
+  } catch (error) {
+    console.error(error.message);
+    throw error;
+  }
+}
