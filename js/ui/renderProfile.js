@@ -89,13 +89,13 @@ export function renderProfile(profile) {
 
   //Profile Card
   const profileCard = document.createElement("div");
-  profileCard.className = "bg-white shadow-md rounded-lg overflow-hidden";
+  profileCard.className = "bg-white shadow-md rounded-md overflow-hidden";
 
   profileCard.append(profileHeader);
 
   // Tabs
   const tabsCard = document.createElement("div");
-  tabsCard.className = "bg-white shadow-md rounded-md overflow-hidden";
+  tabsCard.className = "bg-white shadow-md rounded-md overflow-hidden mb-12";
 
   const tabs = document.createElement("div");
   tabs.className = "flex justify-center gap-12 md:gap-16 py-2";
