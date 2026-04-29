@@ -110,6 +110,7 @@ export function renderListingCard(listing) {
   viewMoreButton.textContent = "View more";
   viewMoreButton.className =
     "bg-linear-to-r from-accent w-full to-accent-hover py-1.5 hover:from-accent hover:to-accent cursor-pointer text-white rounded-md";
+  viewMoreButton.href = `/single-listing.html?id=${listing.id}`;
 
   buttonContainer.appendChild(viewMoreButton);
   card.appendChild(buttonContainer);
