@@ -26,6 +26,7 @@ export function renderProfileListings(listings, content) {
     button.href = "";
     button.className =
       "absolute top-2 right-2 bg-accent text-white text-sm px-2 py-2 rounded-md z-10";
+    button.href = `/single-listing.html?id=${listing.id}`;
 
     const overlay = document.createElement("div");
     overlay.className = "w-full bg-black/70 text-white p-2";
@@ -74,6 +75,7 @@ export function renderProfileBids(bids, content) {
     button.href = "";
     button.className =
       "absolute top-2 right-2 bg-accent text-white text-sm px-2 py-2 rounded-md z-10";
+    button.href = `/single-listing.html?id=${listing.id}`;
 
     const overlay = document.createElement("div");
     overlay.className = "w-full bg-black/70 text-white p-2";
@@ -124,6 +126,7 @@ export function renderProfileWins(wins, content) {
     button.href = "";
     button.className =
       "absolute top-2 right-2 bg-accent text-white text-sm px-2 py-2 rounded-md z-10";
+    button.href = `/single-listing.html?id=${listing.id}`;
 
     const overlay = document.createElement("div");
     overlay.className = "w-full bg-black/70 text-white p-2";
