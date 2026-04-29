@@ -75,9 +75,23 @@
           >+ Create listing</a
         >
       </div>
-      <h1 class="text-header-mobile text-text font-medium md:text-2xl">
-        Listings
-      </h1>
+      <div
+        class="mx-5 mt-6 mb-4 flex items-center justify-between md:mx-11 lg:mx-5 xl:mx-33 2xl:mx-21"
+      >
+        <h1 class="text-header-mobile text-text font-medium md:text-2xl">
+          Listings
+        </h1>
+        <select
+          id="sortListings"
+          class="border-border text-text cursor-pointer border bg-white p-1.5"
+        >
+          <option value="" disabled selected>Sort by:</option>
+          <option value="created:desc">Newest listings</option>
+          <option value="created:asc">Oldest listings</option>
+          <option value="active:desc">Active listings</option>
+          <option value="ended">Ended listings</option>
+        </select>
+      </div>
       <div class="flex justify-center">
         <div
           id="listingCards"

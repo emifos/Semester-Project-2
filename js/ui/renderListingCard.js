@@ -24,7 +24,11 @@ export function renderListingCard(listing) {
   gavelIcon.className = "fa-solid fa-gavel text-sm";
 
   const endDate = document.createElement("p");
-  endDate.textContent = `Ends: ${new Date(listing.endsAt).toLocaleString()}`;
+  const endsAt = new Date(listing.endsAt);
+  const hasEnded = endsAt < new Date();
+  endDate.textContent = hasEnded
+    ? `Ended: ${endsAt.toLocaleString()}`
+    : `Ends: ${endsAt.toLocaleString()}`;
   endDate.className = "text-sm";
   endContainer.append(gavelIcon, endDate);
 
