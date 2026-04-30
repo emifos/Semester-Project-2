@@ -1,4 +1,4 @@
-import { get, post } from "./apiClient.js";
+import { get, post, put, del } from "./apiClient.js";
 
 // All listings
 export async function getAllListings() {
@@ -69,7 +69,29 @@ export async function getSingleListing(id) {
     const listing = await get(
       `/auction/listings/${id}?_seller=true&_bids=true`,
     );
-    return listing.data;
+     return listing.data;
+   } catch (error) {
+     console.error(error.message);
+     throw error;
+  }
+}
+    
+// Update listing
+export async function updateListing(id, updatedData) {
+  try {
+    const listing = await put(`/auction/listings/${id}`, updatedData);
+    return listing;
+  } catch (error) {
+    console.error(error.message);
+    throw error;
+  }
+}
+
+// Delete listing
+export async function deleteListing(id) {
+  try {
+    await del(`/auction/listings/${id}`);
+    return true;
   } catch (error) {
     console.error(error.message);
     throw error;
