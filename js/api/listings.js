@@ -62,3 +62,16 @@ export async function getActiveListings() {
     throw error;
   }
 }
+
+// Get single listing
+export async function getSingleListing(id) {
+  try {
+    const listing = await get(
+      `/auction/listings/${id}?_seller=true&_bids=true`,
+    );
+    return listing.data;
+  } catch (error) {
+    console.error(error.message);
+    throw error;
+  }
+}
