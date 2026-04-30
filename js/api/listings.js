@@ -69,13 +69,13 @@ export async function getSingleListing(id) {
     const listing = await get(
       `/auction/listings/${id}?_seller=true&_bids=true`,
     );
-     return listing.data;
-   } catch (error) {
-     console.error(error.message);
-     throw error;
+    return listing.data;
+  } catch (error) {
+    console.error(error.message);
+    throw error;
   }
 }
-    
+
 // Update listing
 export async function updateListing(id, updatedData) {
   try {
