@@ -1,3 +1,4 @@
+import { showAlert } from "../utils/alert.js";
 import { registerUser } from "../api/auth.js";
 import {
   isValidName,
@@ -54,11 +55,17 @@ export function handleRegister() {
 
     try {
       await registerUser(userData);
-      alert("Registration was successful, you can now log in!");
-      window.location.href = "/login.html";
+      showAlert("Registration successful!", "success", 3000);
+      setTimeout(() => {
+        window.location.href = "/login.html";
+      }, 1500);
     } catch (error) {
       console.error("Registration error:", error);
-      alert(error.message || "Something went wrong. Please try again later");
+      showAlert(
+        error.message || "Registration failed. Please try again.",
+        "error",
+        3000,
+      );
     }
   });
 }

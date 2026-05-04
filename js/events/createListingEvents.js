@@ -1,3 +1,4 @@
+import { showAlert } from "../utils/alert.js";
 import { createListing } from "../api/listings.js";
 
 // Add images to create listing form
@@ -54,11 +55,17 @@ export async function createListingEvent() {
       };
 
       await createListing(listingData);
-      alert("Listing created successfully!");
-      window.location.href = "/index.html";
+      showAlert("Listing created successfully!", "success", 4000);
+      setTimeout(() => {
+        window.location.href = "/index.html";
+      }, 1500);
     } catch (error) {
       console.error("Error creating listing:", error);
-      alert("Failed to create listing. Please try again.");
+      showAlert(
+        error.message || "Failed to create listing. Please try again.",
+        error,
+        4000,
+      );
     }
   });
 }

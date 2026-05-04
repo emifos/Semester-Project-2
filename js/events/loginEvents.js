@@ -1,3 +1,4 @@
+import { showAlert } from "../utils/alert.js";
 import { loginUser } from "../api/auth.js";
 import { isValidEmail, isValidPassword } from "../utils/validation.js";
 import { setAccessToken, setUser } from "../utils/storage.js";
@@ -45,11 +46,17 @@ export function handleLogin() {
       setAccessToken(data.data.accessToken);
       setUser(data.data);
 
-      alert("Login successful!");
-      window.location.href = "/index.html";
+      showAlert("Login successful!", "success", 3000);
+      setTimeout(() => {
+        window.location.href = "/index.html";
+      }, 1500);
     } catch (error) {
       console.error("Login request failed:", error);
-      alert(error.message || "Something went wrong. Please try again later");
+      showAlert(
+        error.message || "Login failed. Please try again.",
+        error,
+        3000,
+      );
     }
   });
 }
