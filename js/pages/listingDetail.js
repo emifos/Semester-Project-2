@@ -1,5 +1,6 @@
 import { getSingleListing } from "../api/listings.js";
 import { renderSingleListing } from "../ui/renderSingleListing.js";
+import { changeMainImage } from "../events/singleListingEvents.js";
 
 const container = document.getElementById("singleListingCard");
 
@@ -22,4 +23,5 @@ export async function initSingleListing() {
   renderListingCard(response);
 }
 
+changeMainImage();
 initSingleListing();
