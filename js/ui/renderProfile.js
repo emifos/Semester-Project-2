@@ -2,7 +2,7 @@ export function renderProfile(profile) {
   const user = profile.data;
 
   const container = document.createElement("div");
-  container.className = "space-y-4";
+  container.className = "space-y-4 my-10 mx-2 md:mx-0";
 
   //Profile Header
   const profileHeader = document.createElement("div");

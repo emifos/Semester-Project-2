@@ -37,40 +37,50 @@
     <header></header>
     <main class="bg-background flex min-h-screen items-start justify-center">
       <div
-        class="mx-4 w-full max-w-md rounded-md bg-white p-6 shadow-md md:mx-0 md:max-w-3xl md:p-20"
+        class="mx-4 my-10 w-full max-w-lg rounded-md bg-white p-6 shadow-md md:mx-0 md:max-w-3xl md:p-20"
       >
         <h1
-          class="text-header-mobile mb-4 text-center font-semibold md:text-2xl"
+          class="text-header-mobile text-text mb-4 text-center font-semibold md:text-2xl"
         >
           Edit Profile
         </h1>
         <form id="editProfileForm">
           <div class="mt-8 flex flex-col gap-1">
-            <label class="font-medium" for="profileBanner">Update Banner</label>
+            <label
+              class="text-text font-semibold md:text-lg"
+              for="profileBanner"
+              >Update Banner</label
+            >
             <input
               type="url"
               id="profileBanner"
               name="profileBanner"
               placeholder="https://unsplash.com/photos/a-glass-vase-with-a-blue-and-green-design-GtAwhwOWAXo"
-              class="border-border text-placeholder focus:outline-accent cursor-pointer rounded-md border px-2 py-3 text-sm"
+              class="border-border text-placeholder focus:outline-accent text-text cursor-pointer rounded-md border px-2 py-3 text-sm"
             />
           </div>
           <div class="mt-3 flex flex-col gap-1">
-            <label class="font-medium" for="profileAvatar">Update Avatar</label>
+            <label
+              class="text-text font-semibold md:text-lg"
+              for="profileAvatar"
+              >Update Avatar</label
+            >
             <input
               type="url"
               id="profileAvatar"
               name="profileAvatar"
               placeholder="https://unsplash.com/photos/a-glass-vase-with-a-blue-and-green-design-GtAwhwOWAXo"
-              class="border-border text-placeholder focus:outline-accent cursor-pointer rounded-md border px-2 py-3 text-sm"
+              class="border-border text-placeholder focus:outline-accent text-text cursor-pointer rounded-md border px-2 py-3 text-sm"
             />
           </div>
           <div class="mt-3 flex flex-col gap-1">
-            <label class="font-medium" for="profileBio">Update Bio</label>
+            <label class="text-text font-semibold md:text-lg" for="profileBio"
+              >Update Bio</label
+            >
             <textarea
               id="profileBio"
               placeholder="Write something about yourself..."
-              class="border-border text-placeholder focus:outline-accent h-32 cursor-pointer rounded-md border px-2 py-3 text-sm"
+              class="border-border text-placeholder focus:outline-accent text-text h-32 cursor-pointer rounded-md border px-2 py-3 text-sm"
             ></textarea>
           </div>
           <div class="mt-4 flex gap-2">
