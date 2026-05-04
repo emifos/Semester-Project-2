@@ -1,7 +1,7 @@
 export function renderSingleListing(listing) {
   const card = document.createElement("div");
   card.className =
-    "bg-white rounded-md shadow-md p-3 max-w-md lg:max-w-2xl p-5";
+    "bg-white rounded-md shadow-md p-3 w-xs md:w-md lg:w-2xl p-5";
 
   // Images
   const media = listing.media?.length ? listing.media : [];
@@ -82,7 +82,7 @@ export function renderSingleListing(listing) {
 
   const description = document.createElement("p");
   description.textContent = listing.description;
-  description.className = "text-text";
+  description.className = "text-text mt-1";
   card.appendChild(description);
 
   // Tags
@@ -102,7 +102,7 @@ export function renderSingleListing(listing) {
 
   // Seller and created date
   const sellerInfo = document.createElement("div");
-  sellerInfo.className = "flex justify-between items-center";
+  sellerInfo.className = "flex justify-between items-center mt-4";
   const seller = document.createElement("p");
   seller.textContent = `Listed by @${listing.seller.name}`;
   seller.className = "text-text text-sm";

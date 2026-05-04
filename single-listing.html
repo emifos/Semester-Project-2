@@ -36,11 +36,14 @@
   <body class="font-manrope grid min-h-screen grid-rows-[auto_1fr_auto]">
     <header></header>
     <main class="bg-background">
-      <div>
+      <div
+        class="flex w-full flex-col items-center justify-center gap-5 md:flex-row"
+      >
         <div id="singleListingCard"></div>
-      </div>
-      <div>
-        <div id="bidHistory"></div>
+        <div class="flex flex-col gap-5">
+          <div id="bidOverview"></div>
+          <div id="bidHistory"></div>
+        </div>
       </div>
     </main>
     <footer class="bg-primary py-6 text-white">
