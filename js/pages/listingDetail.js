@@ -1,6 +1,7 @@
 import { getSingleListing } from "../api/listings.js";
 import { renderSingleListing } from "../ui/renderSingleListing.js";
 import { changeMainImage } from "../events/singleListingEvents.js";
+import { renderBidList, renderBidOverview } from "../ui/renderBidList.js";
 
 const container = document.getElementById("singleListingCard");
 
@@ -21,6 +22,18 @@ export async function initSingleListing() {
 
   const response = await getSingleListing(listingId);
   renderListingCard(response);
+
+  const bidContainer = document.getElementById("bidHistory");
+  bidContainer.innerHTML = "";
+
+  const bidList = renderBidList(response.bids);
+  bidContainer.appendChild(bidList);
+
+  const bidOverviewContainer = document.getElementById("bidOverview");
+  bidOverviewContainer.innerHTML = "";
+
+  const bidOverview = renderBidOverview(response);
+  bidOverviewContainer.appendChild(bidOverview);
 }
 
 changeMainImage();
