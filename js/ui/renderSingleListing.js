@@ -9,7 +9,7 @@ export function renderSingleListing(listing) {
   // Big image
   const bigImage = document.createElement("img");
   const bigImageUrl = media[0]?.url;
-  bigImage.className = "w-2xl object-cover ";
+  bigImage.className = "w-2xl object-cover h-100";
   bigImage.onerror = () => {
     bigImage.src = "/images/placeholder-img.jpg";
   };
@@ -24,6 +24,9 @@ export function renderSingleListing(listing) {
   const bigImageContainer = document.createElement("div");
   bigImageContainer.className = "relative";
 
+  bigImage.dataset.index = 0;
+  bigImage.dataset.role = "main-image";
+
   // Navigation buttons
   const prevButton = document.createElement("i");
   prevButton.className =
@@ -33,19 +36,25 @@ export function renderSingleListing(listing) {
   nextButton.className =
     "fa-solid fa-chevron-right absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer bg-black opacity-75 text-white py-2 px-2.5";
 
+  prevButton.dataset.action = "prev";
+  nextButton.dataset.action = "next";
+
   bigImageContainer.appendChild(bigImage);
 
   if (media.length > 1) {
     bigImageContainer.append(prevButton, nextButton);
   }
 
+  bigImageContainer.dataset.carousel = "true";
+  bigImageContainer.dataset.media = JSON.stringify(media);
+
   card.appendChild(bigImageContainer);
 
   // Small images
   const smallImagesContainer = document.createElement("div");
-  smallImagesContainer.className = "flex gap-2 mt-2";
+  smallImagesContainer.className = "flex flex-wrap gap-2 mt-2";
 
-  media.slice(1).forEach((item) => {
+  media.forEach((item) => {
     const smallImage = document.createElement("img");
     smallImage.src =
       item.url && item.url.trim() !== ""
@@ -56,7 +65,7 @@ export function renderSingleListing(listing) {
       smallImage.src = "/images/placeholder-img.jpg";
     };
 
-    smallImage.className = "w-20 lg:w-30 object-cover";
+    smallImage.className = "w-20 lg:w-30 object-cover h-20 lg:h-30";
     smallImage.alt = item?.alt || "Listing Image";
 
     smallImagesContainer.appendChild(smallImage);
