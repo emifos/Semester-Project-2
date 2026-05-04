@@ -1,3 +1,4 @@
+import { showAlert } from "../utils/alert.js";
 import { updateProfile } from "../api/profiles.js";
 
 export function setupEditProfileEvents(name) {
@@ -18,10 +19,17 @@ export function setupEditProfileEvents(name) {
         bio,
       });
 
-      window.location.href = "/profile.html";
+      showAlert("Profile updated successfully!", "success", 3000);
+      setTimeout(() => {
+        window.location.href = "/profile.html";
+      }, 1500);
     } catch (error) {
       console.error("Error updating profile:", error);
-      alert("Failed to update profile. Please try again.");
+      showAlert(
+        error.message || "Failed to update profile. Please try again.",
+        "error",
+        4000,
+      );
     }
   });
 

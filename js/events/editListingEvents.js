@@ -1,3 +1,4 @@
+import { showAlert } from "../utils/alert.js";
 import { updateListing } from "../api/listings.js";
 
 export function setUpEditListingEvents(id) {
@@ -25,11 +26,17 @@ export function setUpEditListingEvents(id) {
       };
 
       await updateListing(id, updatedData);
-      alert("Listing updated successfully!");
-      window.location.href = `/single-listing.html?id=${id}`;
+      showAlert("Listing updated successfully!", "success", 3000);
+      setTimeout(() => {
+        window.location.href = `/single-listing.html?id=${id}`;
+      }, 1500);
     } catch (error) {
       console.error("Error updating listing:", error);
-      alert("Failed to update listing. Please try again.");
+      showAlert(
+        error.message || "Failed to update listing. Please try again.",
+        error,
+        4000,
+      );
     }
   });
 
