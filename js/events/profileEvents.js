@@ -58,10 +58,22 @@ export function setupProfileEvents(name) {
     }
   });
 
-  // Edit profile Button 
+  // Edit profile Button
   if (editButton) {
     editButton.addEventListener("click", () => {
       window.location.href = "/edit-profile.html";
+    });
+  }
+
+  //Logout-button in header
+  const logoutButton = document.getElementById("logoutButton");
+
+  if (logoutButton) {
+    logoutButton.addEventListener("click", () => {
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("user");
+
+      window.location.href = "/index.html";
     });
   }
 
