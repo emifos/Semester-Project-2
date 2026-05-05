@@ -2,6 +2,8 @@ import { getSingleListing } from "../api/listings.js";
 import { renderSingleListing } from "../ui/renderSingleListing.js";
 import { changeMainImage } from "../events/singleListingEvents.js";
 import { renderBidList, renderBidOverview } from "../ui/renderBidList.js";
+import { getAccessToken, getUser } from "../utils/storage.js";
+import { initBidEvents } from "../events/bidEvents.js";
 
 const container = document.getElementById("singleListingCard");
 
@@ -20,21 +22,36 @@ export async function initSingleListing() {
     throw new Error("No listing ID provided in the URL");
   }
 
-  const response = await getSingleListing(listingId);
-  renderListingCard(response);
+  const listing = await getSingleListing(listingId);
+  renderListingCard(listing);
 
   const bidContainer = document.getElementById("bidHistory");
   bidContainer.innerHTML = "";
 
-  const bidList = renderBidList(response.bids);
+  const bidList = renderBidList(listing.bids);
   bidContainer.appendChild(bidList);
+
+  const user = getUser();
+  const token = getAccessToken();
+
+  const isLoggedIn = !!token;
+  const isOwner = listing?.seller.name === user.name;
+
+  const canBid = isLoggedIn && !isOwner;
 
   const bidOverviewContainer = document.getElementById("bidOverview");
   bidOverviewContainer.innerHTML = "";
 
-  const bidOverview = renderBidOverview(response);
+  const highestBid = listing.bids?.at(-1)?.amount ?? 0;
+
+  const bidOverview = renderBidOverview(listing, {
+    canBid,
+    isOwner,
+    highestBid,
+  });
   bidOverviewContainer.appendChild(bidOverview);
 }
 
 changeMainImage();
 initSingleListing();
+initBidEvents();
