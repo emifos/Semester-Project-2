@@ -12,8 +12,14 @@ export async function setupHeader() {
   let profile = null;
 
   //Fetch profile data from API if the user is logged in.
-  if(isLoggedIn) {
-    profile = await getProfile(storedUser.name);
+  if (isLoggedIn) {
+    try {
+      const response = await getProfile(storedUser.name);
+      profile = response.data;
+    } catch (error) {
+      console.error("Header profile fetch failed:", error);
+      profile = storedUser;
+    }
   }
 
   headerContainer.innerHTML = "";

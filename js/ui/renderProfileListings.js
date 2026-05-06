@@ -60,6 +60,7 @@ export function renderProfileBids(bids, content) {
 
   bids.forEach((bid) => {
     const listing = bid.listing;
+    if (!listing) return;
 
     const card = document.createElement("div");
     card.className =
@@ -90,7 +91,7 @@ export function renderProfileBids(bids, content) {
 
     const amount = document.createElement("p");
     amount.textContent = `Your bid: ${bid.amount}`;
-    amount.className = "font-bold";
+    amount.className = "font-bold mt-2";
 
     overlay.append(title, ends, amount);
     card.append(img, button, overlay);
@@ -138,7 +139,7 @@ export function renderProfileWins(wins, content) {
     const bidCount = document.createElement("p");
     const count = listing._count?.bids || listing.bids?.length || 0;
     bidCount.textContent = `Bids: ${count}`;
-    bidCount.className = "font-bold";
+    bidCount.className = "font-bold mt-2";
 
     overlay.append(title, bidCount);
     card.append(img, button, overlay);

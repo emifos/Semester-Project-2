@@ -1,5 +1,5 @@
 export function renderHeader(isLoggedIn, profile, isProfilePage) {
-  const user = profile.data;
+  const user = profile?.data || profile || null;
 
   const header = document.createElement("div");
   header.className = "w-full bg-secondary";
