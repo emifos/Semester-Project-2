@@ -40,6 +40,32 @@
         class="alert-message text-md fixed top-10 right-10 z-50 hidden rounded-md border px-4 py-2 font-medium"
       ></div>
       <div
+        id="confirmModal"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50"
+      >
+        <div class="flex h-full w-full items-center justify-center">
+          <div class="w-110 rounded-md bg-white p-15 shadow-md">
+            <p class="text-text">
+              Are you sure you want to delete the listing?
+            </p>
+            <div class="mt-5 flex justify-between gap-2">
+              <button
+                id="deleteButton"
+                class="from-accent to-accent-hover hover:bg-accent cursor-pointer rounded-md bg-linear-to-r px-12 py-1.5 text-white hover:bg-none"
+              >
+                Delete
+              </button>
+              <button
+                id="cancelButton"
+                class="border-accent text-accent hover:from-accent hover:to-accent-hover cursor-pointer rounded-md border px-12 hover:bg-linear-to-r hover:text-white"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         class="flex w-full flex-col items-center justify-center gap-5 md:flex-row"
       >
         <div id="singleListingCard"></div>

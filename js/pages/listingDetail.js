@@ -1,6 +1,9 @@
 import { getSingleListing } from "../api/listings.js";
 import { renderSingleListing } from "../ui/renderSingleListing.js";
-import { changeMainImage } from "../events/singleListingEvents.js";
+import {
+  changeMainImage,
+  initDeleteModal,
+} from "../events/singleListingEvents.js";
 import { renderBidList, renderBidOverview } from "../ui/renderBidList.js";
 import { getAccessToken, getUser } from "../utils/storage.js";
 import { initBidEvents } from "../events/bidEvents.js";
@@ -50,6 +53,8 @@ export async function initSingleListing() {
     highestBid,
   });
   bidOverviewContainer.appendChild(bidOverview);
+
+  initDeleteModal();
 }
 
 changeMainImage();

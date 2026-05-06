@@ -149,7 +149,7 @@ export function renderBidOverview(listing, { canBid, isOwner, highestBid }) {
     toolContainer.className = "flex justify-between my-5 gap-3";
 
     const editButton = document.createElement("a");
-    editButton.href = "/edit-listing.html";
+    editButton.href = `/edit-listing.html?id=${listing.id}`;
     editButton.textContent = "Edit listing";
     editButton.className =
       "bg-accent hover:from-accent hover:to-accent-hover cursor-pointer px-7 py-2 rounded-md text-white hover:bg-linear-to-r";
@@ -157,7 +157,8 @@ export function renderBidOverview(listing, { canBid, isOwner, highestBid }) {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete listing";
     deleteButton.className =
-      "border border-accent rounded-md text-accent px-5 hover:from-accent hover:to-accent-hover hover:bg-linear-to-r hover:text-white";
+      "border border-accent rounded-md text-accent px-5 cursor-pointer hover:from-accent hover:to-accent-hover hover:bg-linear-to-r hover:text-white";
+    deleteButton.dataset.delete = listing.id;
 
     toolContainer.append(editButton, deleteButton);
     card.appendChild(toolContainer);
