@@ -9,7 +9,7 @@ export function renderHeader(isLoggedIn, user, isProfilePage) {
   const logo = document.createElement("img");
   logo.src = "/images/logo-header.png";
   logo.alt = "Logo";
-  logo.className = "h-12 md:h-20 object-contain justify-self-start";
+  logo.className = "h-16 md:h-20 object-contain justify-self-start";
 
   //Center nav ( Auction, Profile/Login)
   const centerNav = document.createElement("div");
@@ -44,7 +44,6 @@ export function renderHeader(isLoggedIn, user, isProfilePage) {
   }
 
   //Right side (credits/logout)
-
   const rightWrapper = document.createElement("div");
   rightWrapper.className = "flex items-center gap-4";
 
@@ -90,31 +89,64 @@ export function renderHeader(isLoggedIn, user, isProfilePage) {
   const mobileMenu = document.createElement("div");
   mobileMenu.id = "mobileMenu";
   mobileMenu.className =
-    "hidden flex flex-col items-center gap-6 absolute top-16 left-0 w-full bg-secondary p-4 md:hidden z-40";
+    "hidden absolute flex flex-col gap-6 absolute top-20 left-0 w-full h-screen bg-secondary p-4 md:hidden z-40";
 
+  //Credits/Logout top right
+  if (isLoggedIn) {
+    if (isProfilePage) {
+      const mobileLogout = document.createElement("button");
+      mobileLogout.textContent = "Log out";
+      mobileLogout.id = "mobileLogoutButton";
+      mobileLogout.className =
+        "absolute top-4 right-4 bg-text text-white border border-white rounded-md px-3 py-2";
+
+      mobileMenu.appendChild(mobileLogout);
+    } else {
+      const mobileCredits = document.createElement("div");
+      mobileCredits.className =
+        "absolute top-4 right-4 flex items-center gap-1 text-white font-medium text-lg";
+
+      const mobileIcon = document.createElement("span");
+      mobileIcon.className = "fa-solid fa-coins text-white";
+
+      const mobileAmount = document.createElement("span");
+      mobileAmount.textContent = user?.credits ?? "0";
+
+      mobileCredits.append(mobileIcon, mobileAmount);
+      mobileMenu.appendChild(mobileCredits);
+    }
+  }
+
+  //Links wrapper
+  const mobileLinks = document.createElement("div");
+  mobileLinks.className = "flex flex-col gap-6 mt-12";
+
+  //Auction
   const mobileAuction = document.createElement("a");
   mobileAuction.href = "/index.html";
   mobileAuction.textContent = "Auction";
-  mobileAuction.className = "text-white";
+  mobileAuction.className = "text-white text-xl";
 
-  mobileMenu.appendChild(mobileAuction);
+  mobileLinks.appendChild(mobileAuction);
 
+  //Profile/Login button
   if (isLoggedIn) {
     const mobileProfile = document.createElement("a");
     mobileProfile.href = "/profile.html";
     mobileProfile.textContent = "Profile";
-    mobileProfile.className = "text-white";
+    mobileProfile.className = "text-white text-xl";
 
-    mobileMenu.appendChild(mobileProfile);
+    mobileLinks.appendChild(mobileProfile);
   } else {
     const mobileLogin = document.createElement("a");
     mobileLogin.href = "/login.html";
     mobileLogin.textContent = "Login";
-    mobileLogin.className = "text-white";
+    mobileLogin.className = "text-white text-xl";
 
-    mobileMenu.appendChild(mobileLogin);
+    mobileLinks.appendChild(mobileLogin);
   }
 
+  mobileMenu.appendChild(mobileLinks);
   rightWrapper.append(rightSide, menuButton);
   nav.append(logo, centerNav, rightWrapper);
   header.append(nav, mobileMenu);
