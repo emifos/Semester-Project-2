@@ -66,16 +66,14 @@ export function setupProfileEvents(name) {
   }
 
   //Logout-button in header
-  const logoutButton = document.getElementById("logoutButton");
+  document.addEventListener("click", (e) => {
+    const logoutButton = e.target.closest("#logoutButton, #mobileLogoutButton");
 
-  if (logoutButton) {
-    logoutButton.addEventListener("click", () => {
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("user");
-
-      window.location.href = "/index.html";
-    });
-  }
+    if (!logoutButton) return;
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
+    window.location.href = "/index.html";
+  });
 
   //Default - Listings
   listingsTab.click();
