@@ -7,6 +7,9 @@ import {
 import { renderBidList, renderBidOverview } from "../ui/renderBidList.js";
 import { getAccessToken, getUser } from "../utils/storage.js";
 import { initBidEvents } from "../events/bidEvents.js";
+import { setupHeader } from "../index.js";
+
+setupHeader();
 
 const container = document.getElementById("singleListingCard");
 
