@@ -2,6 +2,9 @@ import { getProfile } from "../api/profiles.js";
 import { renderProfile } from "../ui/renderProfile.js";
 import { setupProfileEvents } from "../events/profileEvents.js";
 import { getUser } from "../utils/storage.js";
+import { setupHeader } from "../index.js";
+
+setupHeader();
 
 const user = getUser();
 
