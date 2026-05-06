@@ -1,15 +1,23 @@
 import { renderHeader } from "./ui/renderHeader.js";
 import { getUser } from "./utils/storage.js";
+import { getProfile } from "./api/profiles.js";
 
-export function setupHeader() {
+export async function setupHeader() {
   const headerContainer = document.getElementById("header");
 
-  const user = getUser();
-  const isLoggedIn = !!user;
+  const storedUser = getUser();
+  const isLoggedIn = !!storedUser;
   const isProfilePage = window.location.pathname.includes("profile");
 
+  let profile = null;
+
+  //Fetch profile data from API if the user is logged in.
+  if(isLoggedIn) {
+    profile = await getProfile(storedUser.name);
+  }
+
   headerContainer.innerHTML = "";
-  headerContainer.appendChild(renderHeader(isLoggedIn, user, isProfilePage));
+  headerContainer.appendChild(renderHeader(isLoggedIn, profile, isProfilePage));
 
   const menuButton = document.getElementById("menuButton");
   const mobileMenu = document.getElementById("mobileMenu");

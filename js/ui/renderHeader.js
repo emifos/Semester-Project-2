@@ -1,4 +1,6 @@
-export function renderHeader(isLoggedIn, user, isProfilePage) {
+export function renderHeader(isLoggedIn, profile, isProfilePage) {
+  const user = profile.data;
+
   const header = document.createElement("div");
   header.className = "w-full bg-secondary";
 
@@ -63,13 +65,13 @@ export function renderHeader(isLoggedIn, user, isProfilePage) {
     } else {
       const credits = document.createElement("div");
       credits.className =
-        "flex items-center gap-1 text-white font-medium text-lg";
+        "flex items-center gap-2 text-white font-medium text-lg";
 
       const icon = document.createElement("span");
       icon.className = "fa-solid fa-coins text-white";
 
       const amount = document.createElement("span");
-      amount.textContent = user?.credits ?? "0";
+      amount.textContent = user?.credits;
 
       credits.append(icon, amount);
       rightSide.appendChild(credits);
@@ -104,13 +106,13 @@ export function renderHeader(isLoggedIn, user, isProfilePage) {
     } else {
       const mobileCredits = document.createElement("div");
       mobileCredits.className =
-        "absolute top-4 right-4 flex items-center gap-1 text-white font-medium text-lg";
+        "absolute top-4 right-4 flex items-center gap-2 text-white font-medium text-lg";
 
       const mobileIcon = document.createElement("span");
       mobileIcon.className = "fa-solid fa-coins text-white";
 
       const mobileAmount = document.createElement("span");
-      mobileAmount.textContent = user?.credits ?? "0";
+      mobileAmount.textContent = user?.credits;
 
       mobileCredits.append(mobileIcon, mobileAmount);
       mobileMenu.appendChild(mobileCredits);

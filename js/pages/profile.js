@@ -4,8 +4,6 @@ import { setupProfileEvents } from "../events/profileEvents.js";
 import { getUser } from "../utils/storage.js";
 import { setupHeader } from "../index.js";
 
-setupHeader();
-
 const user = getUser();
 
 if (!user) {
@@ -15,6 +13,8 @@ if (!user) {
 const name = user.name;
 
 const profile = await getProfile(name);
+
+setupHeader();
 
 const { container } = renderProfile(profile);
 
