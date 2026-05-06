@@ -13,7 +13,7 @@ const id = params.get("id");
 if (!id) {
   console.error("No listing ID provided in URL.");
 } else {
-  renderEditListing(id);
+  await renderEditListing(id);
+  setupAddImageEvent();
   setUpEditListingEvents(id);
-  setupAddImageEvent("listingImage");
 }

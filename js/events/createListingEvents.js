@@ -8,7 +8,16 @@ export function setupAddImageEvent() {
 
   if (!addImageButton || !imageContainer) return;
 
+  const maxImages = 8;
+
   addImageButton.addEventListener("click", () => {
+    const currentInputs = imageContainer.querySelectorAll("input").length;
+
+    if (currentInputs >= maxImages) {
+      showAlert("You can only add 8 images", "error", 3000);
+      return;
+    }
+
     const imageContent = document.createElement("div");
     imageContent.className = "mt-3 flex flex-col gap-1";
 
@@ -18,7 +27,6 @@ export function setupAddImageEvent() {
 
     const imageInput = document.createElement("input");
     imageInput.type = "url";
-    imageInput.id = "imageListing";
     imageInput.name = "imageUrl";
     imageInput.placeholder = "Image URL";
     imageInput.className =
@@ -41,7 +49,13 @@ export async function createListingEvent() {
       const description = document
         .getElementById("listingDescription")
         .value.trim();
-      const imageUrl = document.getElementById("listingImage").value.trim();
+      const imageInputs = document.querySelectorAll(
+        "#imageInputContainer input",
+      );
+      const media = Array.from(imageInputs)
+        .map((input) => input.value.trim())
+        .filter((url) => url !== "")
+        .map((url) => ({ url }));
       const tags = document.getElementById("tags").value.trim();
       const rawDate = document.getElementById("endDate").value;
       const endsAt = rawDate ? new Date(rawDate).toISOString() : null;
@@ -49,7 +63,7 @@ export async function createListingEvent() {
       const listingData = {
         title,
         description,
-        media: imageUrl ? [{ url: imageUrl }] : [],
+        media,
         tags: tags ? tags.split(",").map((tag) => tag.trim()) : [],
         endsAt,
       };
