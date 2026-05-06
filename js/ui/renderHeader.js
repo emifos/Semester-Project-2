@@ -23,7 +23,7 @@ export function renderHeader(isLoggedIn, profile, isProfilePage) {
   auctionLink.href = "/index.html";
   auctionLink.textContent = "Auction";
   auctionLink.className =
-    "text-white text-header-mobile font-medium hover:underline hover:decoration-accent";
+    "text-white text-xl font-medium hover:underline hover:decoration-accent";
 
   centerNav.appendChild(auctionLink);
 
@@ -32,7 +32,7 @@ export function renderHeader(isLoggedIn, profile, isProfilePage) {
     profileLink.href = "/profile.html";
     profileLink.textContent = "Profile";
     profileLink.className =
-      "text-white text-header-mobile font-medium hover:underline hover:decoration-accent";
+      "text-white text-xl font-medium hover:underline hover:decoration-accent";
 
     centerNav.appendChild(profileLink);
   } else {
@@ -40,7 +40,7 @@ export function renderHeader(isLoggedIn, profile, isProfilePage) {
     loginLink.href = "/login.html";
     loginLink.textContent = "Login";
     loginLink.className =
-      "text-white text-header-mobile font-medium hover:underline hover:decoration-accent";
+      "text-white text-xl font-medium hover:underline hover:decoration-accent";
 
     centerNav.appendChild(loginLink);
   }
