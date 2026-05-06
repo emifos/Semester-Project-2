@@ -15,13 +15,19 @@ export function setUpEditListingEvents(id) {
       const description = document
         .getElementById("listingDescription")
         .value.trim();
-      const imageUrl = document.getElementById("listingImage").value.trim();
+      const imageInputs = document.querySelectorAll(
+        "#imageInputContainer input",
+      );
+      const media = Array.from(imageInputs)
+        .map((input) => input.value.trim())
+        .filter((url) => url !== "")
+        .map((url) => ({ url }));
       const tags = document.getElementById("tags").value.trim();
 
       const updatedData = {
         title,
         description,
-        media: imageUrl ? [{ url: imageUrl }] : [],
+        media,
         tags: tags ? tags.split(",").map((tag) => tag.trim()) : [],
       };
 
