@@ -44,7 +44,10 @@ export function renderBidList(bids) {
 }
 
 // Bid overview card showing highest bid, total bids, end date and buttons for bidding, editing and deleting
-export function renderBidOverview(listing, { canBid, isOwner, highestBid }) {
+export function renderBidOverview(
+  listing,
+  { canBid, isOwner, highestBid, user },
+) {
   const bids = listing.bids;
 
   const card = document.createElement("div");
@@ -53,7 +56,9 @@ export function renderBidOverview(listing, { canBid, isOwner, highestBid }) {
   // Title
   if (!isOwner) {
     const title = document.createElement("h2");
-    title.textContent = "Bid on this listing";
+    title.textContent = user
+      ? "Bid on this listing"
+      : "Log in to bid on this listing";
     title.className =
       "text-text font-semibold text-lg border-b border-border mb-2 pb-1";
     card.appendChild(title);
