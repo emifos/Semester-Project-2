@@ -22,5 +22,3 @@ const profileCard = document.getElementById("profileCard");
 profileCard.appendChild(container);
 
 setupProfileEvents(name);
-
-console.log(getUser());
