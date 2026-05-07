@@ -41,7 +41,7 @@ export async function initSingleListing() {
   const token = getAccessToken();
 
   const isLoggedIn = !!token;
-  const isOwner = listing?.seller.name === user.name;
+  const isOwner = listing?.seller?.name === user?.name;
 
   const canBid = isLoggedIn && !isOwner;
 
@@ -54,6 +54,7 @@ export async function initSingleListing() {
     canBid,
     isOwner,
     highestBid,
+    user,
   });
   bidOverviewContainer.appendChild(bidOverview);
 
