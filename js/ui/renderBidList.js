@@ -139,7 +139,7 @@ export function renderBidOverview(
     const placeBidButton = document.createElement("button");
     placeBidButton.textContent = "Place bid";
     placeBidButton.className =
-      "bg-accent hover:from-accent hover:to-accent-hover cursor-pointer px-3.5 rounded-md font-medium text-white hover:bg-linear-to-r";
+      "bg-accent hover:from-accent hover:to-accent-hover cursor-pointer px-3 rounded-md font-medium text-white hover:bg-linear-to-r";
     placeBidButton.dataset.placeBid = "";
     placeBidButton.dataset.listingId = listing.id;
     placeBidButton.dataset.highestBid = highestBid;
