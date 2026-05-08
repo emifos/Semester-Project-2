@@ -118,7 +118,7 @@ export function renderProfileWins(wins, content) {
       "w-full max-w-xs mx-auto relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
 
     const img = document.createElement("img");
-    img.src = listing.media?.[0]?.url || "../../images/placeholder-img.jpg";
+    img.src = listing.media?.[0]?.url || "./images/placeholder-img.jpg";
     img.alt = listing.media?.[0]?.alt || "Win listing image";
     img.className = "w-full h-55 object-cover";
 
