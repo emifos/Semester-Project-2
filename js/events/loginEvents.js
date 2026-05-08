@@ -48,7 +48,7 @@ export function handleLogin() {
 
       showAlert("Login successful!", "success", 3000);
       setTimeout(() => {
-        window.location.href = "/index.html";
+        window.location.href = "./index.html";
       }, 1500);
     } catch (error) {
       console.error("Login request failed:", error);

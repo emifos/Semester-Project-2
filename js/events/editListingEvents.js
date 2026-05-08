@@ -34,7 +34,7 @@ export function setUpEditListingEvents(id) {
       await updateListing(id, updatedData);
       showAlert("Listing updated successfully!", "success", 3000);
       setTimeout(() => {
-        window.location.href = `/single-listing.html?id=${id}`;
+        window.location.href = `./single-listing.html?id=${id}`;
       }, 1500);
     } catch (error) {
       console.error("Error updating listing:", error);
@@ -47,6 +47,6 @@ export function setUpEditListingEvents(id) {
   });
 
   cancelButton.addEventListener("click", () => {
-    window.location.href = `/single-listing.html?id=${id}`;
+    window.location.href = `./single-listing.html?id=${id}`;
   });
 }

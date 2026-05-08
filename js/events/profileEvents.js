@@ -61,7 +61,7 @@ export function setupProfileEvents(name) {
   // Edit profile Button
   if (editButton) {
     editButton.addEventListener("click", () => {
-      window.location.href = "/edit-profile.html";
+      window.location.href = "./edit-profile.html";
     });
   }
 
@@ -72,7 +72,7 @@ export function setupProfileEvents(name) {
     if (!logoutButton) return;
     localStorage.removeItem("accessToken");
     localStorage.removeItem("user");
-    window.location.href = "/index.html";
+    window.location.href = "./index.html";
   });
 
   //Default - Listings

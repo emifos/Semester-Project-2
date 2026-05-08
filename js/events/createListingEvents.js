@@ -71,7 +71,7 @@ export async function createListingEvent() {
       await createListing(listingData);
       showAlert("Listing created successfully!", "success", 4000);
       setTimeout(() => {
-        window.location.href = "/index.html";
+        window.location.href = "./index.html";
       }, 1500);
     } catch (error) {
       console.error("Error creating listing:", error);

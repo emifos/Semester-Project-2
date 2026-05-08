@@ -17,7 +17,7 @@ export function renderProfileListings(listings, content) {
       "w-full max-w-xs mx-auto relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
 
     const img = document.createElement("img");
-    img.src = listing.media?.[0]?.url || "/images/placeholder-img.jpg";
+    img.src = listing.media?.[0]?.url || "../../images/placeholder-img.jpg";
     img.alt = listing.media?.[0]?.alt || "Listing image";
     img.className = "w-full h-55 object-cover";
 
@@ -26,7 +26,7 @@ export function renderProfileListings(listings, content) {
     button.href = "";
     button.className =
       "absolute top-2 right-2 bg-accent text-white text-sm px-2 py-2 rounded-md z-10";
-    button.href = `/single-listing.html?id=${listing.id}`;
+    button.href = `./single-listing.html?id=${listing.id}`;
 
     const overlay = document.createElement("div");
     overlay.className = "w-full bg-black/70 text-white p-2";
@@ -67,7 +67,7 @@ export function renderProfileBids(bids, content) {
       "w-full max-w-xs mx-auto relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
 
     const img = document.createElement("img");
-    img.src = listing.media?.[0]?.url || "/images/placeholder-img.jpg";
+    img.src = listing.media?.[0]?.url || "../../images/placeholder-img.jpg";
     img.alt = listing.media?.[0]?.alt || "Bid listing image";
     img.className = "w-full h-55 object-cover";
 
@@ -76,7 +76,7 @@ export function renderProfileBids(bids, content) {
     button.href = "";
     button.className =
       "absolute top-2 right-2 bg-accent text-white text-sm px-2 py-2 rounded-md z-10";
-    button.href = `/single-listing.html?id=${listing.id}`;
+    button.href = `./single-listing.html?id=${listing.id}`;
 
     const overlay = document.createElement("div");
     overlay.className = "w-full bg-black/70 text-white p-2";
@@ -118,7 +118,7 @@ export function renderProfileWins(wins, content) {
       "w-full max-w-xs mx-auto relative rounded-md overflow-hidden shadow-md bg-white md:max-w-[260px]";
 
     const img = document.createElement("img");
-    img.src = listing.media?.[0]?.url || "/images/placeholder-img.jpg";
+    img.src = listing.media?.[0]?.url || "../../images/placeholder-img.jpg";
     img.alt = listing.media?.[0]?.alt || "Win listing image";
     img.className = "w-full h-55 object-cover";
 
@@ -127,7 +127,7 @@ export function renderProfileWins(wins, content) {
     button.href = "";
     button.className =
       "absolute top-2 right-2 bg-accent text-white text-sm px-2 py-2 rounded-md z-10";
-    button.href = `/single-listing.html?id=${listing.id}`;
+    button.href = `./single-listing.html?id=${listing.id}`;
 
     const overlay = document.createElement("div");
     overlay.className = "w-full bg-black/70 text-white p-2";
