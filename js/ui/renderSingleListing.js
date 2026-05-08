@@ -74,7 +74,7 @@ export function renderSingleListing(listing) {
   card.appendChild(smallImagesContainer);
 
   // Title and description
-  const title = document.createElement("h2");
+  const title = document.createElement("h1");
   title.textContent = listing.title;
   title.className =
     "text-header-mobile mt-2 lg:mt-5 md:text-2xl font-semibold text-text";
