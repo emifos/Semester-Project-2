@@ -11,13 +11,13 @@ export function renderSingleListing(listing) {
   const bigImageUrl = media[0]?.url;
   bigImage.className = "w-2xl object-cover h-100";
   bigImage.onerror = () => {
-    bigImage.src = "../../images/placeholder-img.jpg";
+    bigImage.src = "./images/placeholder-img.jpg";
   };
 
   bigImage.src =
     bigImageUrl && bigImageUrl.trim() !== ""
       ? bigImageUrl
-      : "../../images/placeholder-img.jpg";
+      : "./images/placeholder-img.jpg";
 
   bigImage.alt = media[0]?.alt || "Listing Image";
 
@@ -59,10 +59,10 @@ export function renderSingleListing(listing) {
     smallImage.src =
       item.url && item.url.trim() !== ""
         ? item.url
-        : "../../images/placeholder-img.jpg";
+        : "./images/placeholder-img.jpg";
 
     smallImage.onerror = () => {
-      smallImage.src = "../../images/placeholder-img.jpg";
+      smallImage.src = "./images/placeholder-img.jpg";
     };
 
     smallImage.className = "w-20 lg:w-30 object-cover h-20 lg:h-30";

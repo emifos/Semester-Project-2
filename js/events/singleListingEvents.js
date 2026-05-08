@@ -27,7 +27,7 @@ export function changeMainImage() {
     image.src =
       imageUrl && imageUrl.trim() !== ""
         ? imageUrl
-        : "../../images/placeholder-img.jpg";
+        : "./images/placeholder-img.jpg";
 
     image.dataset.index = index;
   });

@@ -12,7 +12,7 @@ export function renderProfile(profile) {
   bannerWrapper.className = "relative";
 
   const banner = document.createElement("img");
-  banner.src = user.banner?.url || "../../images/placeholder-img.jpg";
+  banner.src = user.banner?.url || "./images/placeholder-img.jpg";
   banner.alt = user.banner?.alt || "Banner";
   banner.className = "w-full h-32 object-cover";
 
@@ -29,7 +29,7 @@ export function renderProfile(profile) {
   profileContent.className = "p-4";
 
   const avatar = document.createElement("img");
-  avatar.src = user.avatar?.url || "../../images/placeholder-img.jpg";
+  avatar.src = user.avatar?.url || "./images/placeholder-img.jpg";
   avatar.alt = user.avatar?.alt || "Avatar";
   avatar.className = "w-16 h-16 rounded-full md:w-20 md:h-20 object-cover";
 
