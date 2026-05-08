@@ -20,7 +20,7 @@ export function renderBidList(bids) {
   bidList.className = "flex flex-col gap-2";
   bids
     .slice()
-    .reverse()
+    .sort((a, b) => b.amount - a.amount)
     .forEach((bid) => {
       const bidInfo = document.createElement("li");
       bidInfo.className =
@@ -72,10 +72,12 @@ export function renderBidOverview(
   const highestBidText = document.createElement("p");
   highestBidText.textContent = "Highest bid";
 
-  const latestBid = bids.at(-1);
+  const highestAmount = bids.length
+    ? Math.max(...bids.map((bid) => bid.amount))
+    : null;
   const highestBidAmount = document.createElement("span");
-  highestBidAmount.textContent = latestBid
-    ? `${latestBid.amount} credits`
+  highestBidAmount.textContent = highestAmount
+    ? `${highestAmount} credits`
     : "No bids yet";
   highestBidAmount.className = "font-semibold";
 
