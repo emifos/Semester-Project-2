@@ -36,4 +36,14 @@ export function setupEditProfileEvents(name) {
   cancelButton.addEventListener("click", () => {
     window.location.href = "./profile.html";
   });
+
+  //Logout-button in header
+  document.addEventListener("click", (e) => {
+    const logoutButton = e.target.closest("#logoutButton, #mobileLogoutButton");
+
+    if (!logoutButton) return;
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
+    window.location.href = "./index.html";
+  });
 }
