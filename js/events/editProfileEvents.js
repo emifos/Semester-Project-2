@@ -21,7 +21,7 @@ export function setupEditProfileEvents(name) {
 
       showAlert("Profile updated successfully!", "success", 3000);
       setTimeout(() => {
-        window.location.href = "/profile.html";
+        window.location.href = "./profile.html";
       }, 1500);
     } catch (error) {
       console.error("Error updating profile:", error);
@@ -34,6 +34,6 @@ export function setupEditProfileEvents(name) {
   });
 
   cancelButton.addEventListener("click", () => {
-    window.location.href = "/profile.html";
+    window.location.href = "./profile.html";
   });
 }

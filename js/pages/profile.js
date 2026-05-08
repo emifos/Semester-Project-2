@@ -7,7 +7,7 @@ import { setupHeader } from "../index.js";
 const user = getUser();
 
 if (!user) {
-  window.location.href = "/login.html";
+  window.location.href = "./login.html";
 }
 
 const name = user.name;

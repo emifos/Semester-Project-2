@@ -27,7 +27,7 @@ export function changeMainImage() {
     image.src =
       imageUrl && imageUrl.trim() !== ""
         ? imageUrl
-        : "/images/placeholder-img.jpg";
+        : "../../images/placeholder-img.jpg";
 
     image.dataset.index = index;
   });
@@ -67,7 +67,7 @@ export function initDeleteModal() {
       modal.classList.remove("flex");
       showAlert("Listing deleted successfully!", "success", 3000);
       setTimeout(() => {
-        window.location.href = "/index.html";
+        window.location.href = "./index.html";
       }, 2000);
     } catch (error) {
       showAlert(error.message || "Failed to delete listing", "error", 3000);

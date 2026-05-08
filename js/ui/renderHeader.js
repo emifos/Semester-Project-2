@@ -9,7 +9,7 @@ export function renderHeader(isLoggedIn, profile, isProfilePage) {
 
   //Logo on the left
   const logo = document.createElement("img");
-  logo.src = "/images/logo-header.png";
+  logo.src = "../../images/logo-header.png";
   logo.alt = "Logo";
   logo.className = "h-16 md:h-20 pl-4 object-contain justify-self-start";
 
@@ -20,7 +20,7 @@ export function renderHeader(isLoggedIn, profile, isProfilePage) {
 
   //Auction always visible
   const auctionLink = document.createElement("a");
-  auctionLink.href = "/index.html";
+  auctionLink.href = "./index.html";
   auctionLink.textContent = "Auction";
   auctionLink.className =
     "text-white text-xl font-medium hover:underline hover:decoration-accent";
@@ -29,7 +29,7 @@ export function renderHeader(isLoggedIn, profile, isProfilePage) {
 
   if (isLoggedIn) {
     const profileLink = document.createElement("a");
-    profileLink.href = "/profile.html";
+    profileLink.href = "./profile.html";
     profileLink.textContent = "Profile";
     profileLink.className =
       "text-white text-xl font-medium hover:underline hover:decoration-accent";
@@ -37,7 +37,7 @@ export function renderHeader(isLoggedIn, profile, isProfilePage) {
     centerNav.appendChild(profileLink);
   } else {
     const loginLink = document.createElement("a");
-    loginLink.href = "/login.html";
+    loginLink.href = "./login.html";
     loginLink.textContent = "Login";
     loginLink.className =
       "text-white text-xl font-medium hover:underline hover:decoration-accent";
@@ -125,7 +125,7 @@ export function renderHeader(isLoggedIn, profile, isProfilePage) {
 
   //Auction
   const mobileAuction = document.createElement("a");
-  mobileAuction.href = "/index.html";
+  mobileAuction.href = "./index.html";
   mobileAuction.textContent = "Auction";
   mobileAuction.className = "text-white text-xl";
 
@@ -134,14 +134,14 @@ export function renderHeader(isLoggedIn, profile, isProfilePage) {
   //Profile/Login button
   if (isLoggedIn) {
     const mobileProfile = document.createElement("a");
-    mobileProfile.href = "/profile.html";
+    mobileProfile.href = "./profile.html";
     mobileProfile.textContent = "Profile";
     mobileProfile.className = "text-white text-xl";
 
     mobileLinks.appendChild(mobileProfile);
   } else {
     const mobileLogin = document.createElement("a");
-    mobileLogin.href = "/login.html";
+    mobileLogin.href = "./login.html";
     mobileLogin.textContent = "Login";
     mobileLogin.className = "text-white text-xl";
 

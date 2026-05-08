@@ -57,7 +57,7 @@ export function handleRegister() {
       await registerUser(userData);
       showAlert("Registration successful!", "success", 3000);
       setTimeout(() => {
-        window.location.href = "/login.html";
+        window.location.href = "./login.html";
       }, 1500);
     } catch (error) {
       console.error("Registration error:", error);

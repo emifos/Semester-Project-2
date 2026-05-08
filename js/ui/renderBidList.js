@@ -156,7 +156,7 @@ export function renderBidOverview(
     toolContainer.className = "flex justify-between my-5 gap-3";
 
     const editButton = document.createElement("a");
-    editButton.href = `/edit-listing.html?id=${listing.id}`;
+    editButton.href = `./edit-listing.html?id=${listing.id}`;
     editButton.textContent = "Edit listing";
     editButton.className =
       "bg-accent hover:from-accent hover:to-accent-hover cursor-pointer px-7 py-2 rounded-md text-white hover:bg-linear-to-r";
