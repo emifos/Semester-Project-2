@@ -124,7 +124,7 @@ export function renderBidOverview(
   // Place a bid if logged in
   if (canBid && !hasEnded) {
     const bidInputContainer = document.createElement("div");
-    bidInputContainer.className = "flex gap-3 justify-between my-5";
+    bidInputContainer.className = "flex gap-1 justify-between my-5";
     bidInputContainer.dataset.bidContainer = "";
 
     const bidInputLabel = document.createElement("label");
@@ -135,13 +135,13 @@ export function renderBidOverview(
     bidInput.type = "number";
     bidInput.placeholder = "Enter your bid";
     bidInput.className =
-      "border-border text-placeholder focus:outline-accent text-text cursor-pointer rounded-md border px-2 py-3 text-sm";
+      "border-border text-placeholder focus:outline-accent text-text cursor-pointer rounded-md border px-1.5 py-3 text-sm";
     bidInput.dataset.bidInput = "";
 
     const placeBidButton = document.createElement("button");
     placeBidButton.textContent = "Place bid";
     placeBidButton.className =
-      "bg-accent hover:from-accent hover:to-accent-hover cursor-pointer px-3 rounded-md font-medium text-white hover:bg-linear-to-r";
+      "bg-accent hover:from-accent hover:to-accent-hover cursor-pointer px-1.5 rounded-md font-medium text-white hover:bg-linear-to-r";
     placeBidButton.dataset.placeBid = "";
     placeBidButton.dataset.listingId = listing.id;
     placeBidButton.dataset.highestBid = highestBid;
