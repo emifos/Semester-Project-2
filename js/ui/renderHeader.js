@@ -81,6 +81,7 @@ export function renderHeader(isLoggedIn, profile, isProfilePage) {
   //Menu mobile
   const menuButton = document.createElement("button");
   menuButton.id = "menuButton";
+  menuButton.setAttribute("aria-label", "Hamburger button");
   menuButton.className = "text-white text-2xl md:hidden justify-self-end z-50";
 
   const icon = document.createElement("i");
