@@ -11,7 +11,7 @@ export function renderHeader(isLoggedIn, profile, isProfilePage) {
   const logo = document.createElement("img");
   logo.src = "/images/logo-header.png";
   logo.alt = "Logo";
-  logo.className = "h-16 md:h-20 object-contain justify-self-start";
+  logo.className = "h-16 md:h-20 pl-4 object-contain justify-self-start";
 
   //Center nav ( Auction, Profile/Login)
   const centerNav = document.createElement("div");

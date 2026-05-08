@@ -82,7 +82,10 @@ export function renderListingCard(listing) {
 
   let bidsList;
   if (listing.bids?.length) {
-    const recentBids = listing.bids.slice(-3).reverse();
+    const recentBids = listing.bids
+      .slice()
+      .sort((a, b) => b.amount - a.amount)
+      .slice(0, 3);
     bidsList = document.createElement("ul");
     bidsList.textContent = "Recent bids:";
     bidsList.className =
