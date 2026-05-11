@@ -40,6 +40,7 @@ export function setupAddImageEvent() {
 // Create listing form submission event listener
 export async function createListingEvent() {
   const form = document.getElementById("createListingForm");
+  const cancelListing = document.getElementById("cancelListing");
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -81,5 +82,9 @@ export async function createListingEvent() {
         4000,
       );
     }
+  });
+
+  cancelListing.addEventListener("click", () => {
+    window.location.href = "./index.html";
   });
 }
